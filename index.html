@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAY arianaShop - Stray Kids Official Merch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #e94560;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #e94560, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(233, 69, 96, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(233, 69, 96, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .cart-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1), rgba(255, 107, 157, 0.1));
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #e94560, #ff6b9d, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(233, 69, 96, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #e94560, #ff6b9d);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(233, 69, 96, 0.6);
+        }
+
+        /* Categories */
+        .categories {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #ff6b9d;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(233, 69, 96, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: #e94560;
+            box-shadow: 0 10px 40px rgba(233, 69, 96, 0.3);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffd93d;
+        }
+
+        /* Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(233, 69, 96, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: #e94560;
+            box-shadow: 0 15px 50px rgba(233, 69, 96, 0.4);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #e94560, #ff6b9d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #ffd93d;
+        }
+
+        .product-info p {
+            color: #ddd;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: #ff6b9d;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(45deg, #e94560, #ff6b9d);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: #ff6b9d;
+            font-size: 2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd93d;
+            transform: scale(1.2);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-icon {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">STAY ArianaSHOP</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#categories">Categorías</a></li>
+                <li><a href="#products">Productos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <div class="cart-icon">🛒</div>
+                <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>🌟 STRAY KIDS OFFICIAL MERCH 🌟</h1>
+        <p>Descubre la colección oficial de Stray Kids. ¡STAY unidos!</p>
+        <button class="cta-button">Explorar Colección</button>
+    </section>
+
+    <section class="categories" id="categories">
+        <h2 class="section-title">⚡ Categorías ⚡</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-icon">👕</div>
+                <h3>Ropa</h3>
+                <p>Camisetas, hoodies y más</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">💿</div>
+                <h3>Álbumes</h3>
+                <p>Ediciones limitadas y especiales</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">✨</div>
+                <h3>Accesorios</h3>
+                <p>Lightsticks, pósters y más</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎁</div>
+                <h3>Coleccionables</h3>
+                <p>Photocards, keychains y exclusivos</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories" id="products">
+        <h2 class="section-title">🔥 Productos Destacados 🔥</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">👕</div>
+                <div class="product-info">
+                    <h4>SKZ World Tour Hoodie</h4>
+                    <p>Hoodie oficial del World Tour 2024</p>
+                    <div class="product-price">$55.00</div>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">💿</div>
+                <div class="product-info">
+                    <h4>5-STAR Album (Limited)</h4>
+                    <p>Álbum 5-STAR Edición Limitada</p>
+                    <div class="product-price">$32.00</div>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">✨</div>
+                <div class="product-info">
+                    <h4>Official Lightstick Ver.2</h4>
+                    <p>Lightstick oficial 2da generación</p>
+                    <div class="product-price">$68.00</div>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">👕</div>
+                <div class="product-info">
+                    <h4>MANIAC T-Shirt</h4>
+                    <p>Camiseta oficial era MANIAC</p>
+                    <div class="product-price">$28.00</div>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🎁</div>
+                <div class="product-info">
+                    <h4>Photocard Set (8 Members)</h4>
+                    <p>Set completo de photocards oficiales</p>
+                    <div class="product-price">$15.00</div>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🧢</div>
+                <div class="product-info">
+                    <h4>SKZ Baseball Cap</h4>
+                    <p>Gorra oficial con logo bordado</p>
+                    <div class="product-price">$25.00</div>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <h3>Síguenos en redes sociales</h3>
+            <div class="social-links">
+                <a href="#">📷</a>
+                <a href="#">🐦</a>
+                <a href="#">📘</a>
+                <a href="#">🎵</a>
+            </div>
+            <p>© 2024 STAY Shop - Stray Kids Official Merchandise</p>
+            <p style="margin-top: 1rem; color: #888;">Todos los derechos reservados | Envíos a todo el mundo</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add to cart animation
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                this.textContent = '✓ Añadido';
+                this.style.background = 'linear-gradient(45deg, #4caf50, #8bc34a)';
+                setTimeout(() => {
+                    this.textContent = 'Añadir al Carrito';
+                    this.style.background = 'linear-gradient(45deg, #e94560, #ff6b9d)';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
